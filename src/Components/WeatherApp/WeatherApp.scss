@@ -1,0 +1,13 @@
+@import '../../styles/_colors.scss';
+
+.WeatherApp {
+  // background-color: $bg-color;
+
+  // width: 200px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  // grid-template-rows: 1fr;
+  grid-gap: 10px;
+
+}
+
