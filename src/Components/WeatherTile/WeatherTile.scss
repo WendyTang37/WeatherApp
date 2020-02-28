@@ -1,5 +1,26 @@
 @import '../../styles/_colors.scss';
 
 .WeatherTile {
-    background-color: $bg-color;
+    margin-left: 10px;
+    padding-top: 5px;
+    width: 7rem;
+    height: 8em;
+    text-align: center;
+    color: $secondary-text;
+    box-shadow: 5px 5px 10px #ddd;
+
+}
+
+.weather-icon {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+}
+
+.day-title {
+    // color: $secondary-text;
+}
+
+.hi-temp-text {
+    color: $primary-text;
 }
