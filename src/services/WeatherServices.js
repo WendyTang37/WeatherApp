@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const forecast = [
     {
         'day': 'monday',
@@ -70,9 +72,41 @@ const forecast = [
         'hourly': [],
     }
 
-]
+];
 
-export const getForecast = () => {
-    return forecast;
+export const getForecast = async () => {
+  const forecast = await axios(
+    'https://api.weatherbit.io/v2.0/forecast/daily?postal_code=94030&units=I&days=7&key=59046f44ad8242e697266d4e703ed5e6',
+  )
+  return mapResponseData(forecast.data);
 
 }
+
+const mapResponseData = (response) => {
+  let forecastData = response.data.map((forecast) => {
+    const weather = {};
+    weather.day = new Date(forecast.valid_date).getDay();
+    // forecastObj.dateStr= forecast.dt_txt;
+    weather.high_temperature = Math.round(forecast.max_temp);
+    weather.low_temperature = Math.round(forecast.min_temp);
+    weather.icon = forecast.weather.icon;
+    return weather;
+  });
+
+  console.log('forecastData',forecastData);
+
+  return forecastData;
+}
+
+const codeToIcon = {
+
+}
+/*
+choose which 3hour interval
+
+getUTChour from dt
+
+Math.floor(hour / 3) * 3
+
+
+*/

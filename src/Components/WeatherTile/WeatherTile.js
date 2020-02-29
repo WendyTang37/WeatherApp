@@ -1,25 +1,23 @@
 import React from 'react';
 import './WeatherTile.scss';
-import sprite from '../../assets/weather-icons.svg'
-
 
 const WeatherTile = (props) => {
 
   const getDisplayDay = () => {
     switch(props.weather.day) {
-      case 'monday':
+      case 1:
         return 'Mon';
-      case 'tuesday':
+      case 2:
         return 'Tues';
-      case 'wednesday': 
+      case 3: 
         return 'Wed';
-      case 'thursday':
+      case 4:
         return 'Thurs';
-      case 'friday':
+      case 5:
         return 'Fri';
-      case 'saturday':
+      case 6:
         return 'Sat';
-      case 'sunday': 
+      case 0: 
         return 'Sun';
       default:
         return 'Fun';
@@ -29,9 +27,7 @@ const WeatherTile = (props) => {
   return (
     <div className="WeatherTile" >
       <div className="day-title">{getDisplayDay()}</div>
-      <svg className="weather-icon">
-        <use href={'#'+props.weather.icon} />
-      </svg>
+      <img className="weather-icon" src={'/assets/icons/' + props.weather.icon + '.png'}></img>
       <div>
         <span className="hi-temp-text">{props.weather.high_temperature}&deg;</span> 
         &nbsp;{props.weather.low_temperature}&deg;
